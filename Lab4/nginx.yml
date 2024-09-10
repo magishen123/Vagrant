@@ -1,0 +1,6 @@
+---
+- name: Install postgreSQL webservers
+  hosts: webservers                         
+  become: true
+  roles: 
+    - postgre
