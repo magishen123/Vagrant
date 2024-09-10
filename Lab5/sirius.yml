@@ -1,0 +1,21 @@
+- name: Selinux
+  hosts: sirius_consul
+  become: yes
+  roles:
+    - selinux
+
+- name: Install consul
+  hosts: sirius_consul
+  become: yes
+  roles:
+    - consul
+
+- name: Create vg
+  hosts: sirius_postgres
+  become: yes
+  roles:
+    - disks
+    - postrge
+
+
+
