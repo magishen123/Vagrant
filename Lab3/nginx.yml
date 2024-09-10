@@ -1,0 +1,15 @@
+- name: Install nginx webservers
+  hosts: webservers                          
+  become: true
+  roles: 
+    - server
+- name: Install haproxy and keepalive
+  hosts: haproxy
+  become: true
+  roles: 
+    - balance
+- name: Reboot
+  hosts: all
+  become: true
+  roles: 
+    - seliux
