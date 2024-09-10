@@ -1,0 +1,16 @@
+---
+- name: Reboot
+  hosts: all
+  become: true
+  roles: 
+    - seliux
+- name: Install nginx webservers
+  hosts:                          
+  become: true
+  roles: 
+    - client
+- name: Install nginx balansirovchik
+  hosts: balansirovchik
+  become: true
+  roles: 
+    - balance
